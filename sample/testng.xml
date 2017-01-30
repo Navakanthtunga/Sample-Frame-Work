@@ -3,7 +3,6 @@
 <suite name="Suite">
   <test name="Test">
     <classes>
-      <class name="com.testscripts.SampleTest1"/>
       <class name="com.testscripts.GmailLoginScript"/>
     </classes>
   </test> <!-- Test -->

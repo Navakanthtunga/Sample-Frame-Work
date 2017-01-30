@@ -1,5 +1,11 @@
 package com.baselib;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -17,16 +23,15 @@ public static int passCount;
 		passCount=passCount++;
 		System.out.println("No of Test passed : "+ passCount);
 	}
-
-	public void onTestFailure(ITestResult result) 
+public void onTestFailure(ITestResult result) 
 	{
-		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-
-   
-        new File(FilePath);  
-        FileUtils.copyFile(scrFile, new File( sDirPath +methodName +".jpg") );
-        System.out.println("***Placed screen shot in "+scrFile+" ***");
-    }
+		File scrFile = ((TakesScreenshot)BaseLib.driver).getScreenshotAs(OutputType.FILE);
+		try {
+			FileUtils.copyFile(scrFile, new File(BaseLib.sDirPath+"\\screenshots\\testScreenShot.jpg"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void onTestSkipped(ITestResult result) {

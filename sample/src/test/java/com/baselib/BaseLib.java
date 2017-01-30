@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeMethod;
  *
  */
 public class BaseLib {
-	public  WebDriver driver;
+	public static  WebDriver driver;
 	static public String sDirPath = System.getProperty("user.dir");
 	
 	@BeforeMethod

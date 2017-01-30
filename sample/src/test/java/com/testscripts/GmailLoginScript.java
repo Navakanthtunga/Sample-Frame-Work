@@ -1,11 +1,10 @@
 package com.testscripts;
 
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.baselib.BaseLib;
 import com.po.GmailLoginPo;
-@Listeners(com.baselib.Listners.class)
+
 
 public class GmailLoginScript extends BaseLib{
 	
@@ -16,7 +15,7 @@ public void login() throws Throwable
 	t1.setEmail("cbtcrowd508");
 	t1.clickNextButt();
 	Thread.sleep(5000);
-	t1.setPwd("PEAR@123");
+	t1.setPwd("PEAR@12");
 	t1.clickSignInButt();
 	
 }
