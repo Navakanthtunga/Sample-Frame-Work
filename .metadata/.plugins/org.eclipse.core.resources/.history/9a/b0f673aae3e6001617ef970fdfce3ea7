@@ -20,13 +20,7 @@ public static int passCount;
 
 	public void onTestFailure(ITestResult result) 
 	{
-		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-
-        String FilePath = "C:\\Users\\test-output\\";
-        new File(FilePath);  
-        FileUtils.copyFile(scrFile, new File( FilePath +methodName +".jpg") );
-        System.out.println("***Placed screen shot in "+scrFile+" ***");
-    }
+		
 	}
 
 	public void onTestSkipped(ITestResult result) {
