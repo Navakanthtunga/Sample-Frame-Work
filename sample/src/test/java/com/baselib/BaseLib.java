@@ -1,47 +1,23 @@
 package com.baselib;
 
-import java.io.FileInputStream;
-
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeMethod;
 
 /***********
- *@method:  toReadExcelData()
+ *@method:  
  *
  *
  */
 public class BaseLib {
-	public static String sTestDataFile="TestData.xlsx";
+	public  WebDriver driver;
 	
-	public static String[] toReadExcelData(String sTestCaseID)
-	{
-		String sData[]=null;
-		try
-		{
-	
-		FileInputStream fis = new FileInputStream(sTestDataFile);
-		Workbook wb = (Workbook) WorkbookFactory.create(fis);
-		Sheet sht = wb.getSheet("TestData");
-		int iRowNum= sht.getLastRowNum();
-		for(int i=1;i<=iRowNum;i++)
-		{
-			if(sht.getRow(i).getCell(0).toString().equals(sTestCaseID))
-			{
-				int iCellNum=sht.getRow(i).getLastCellNum();
-				sData= new String[iCellNum];
-				for(int j=0;j<iCellNum;j++)		
-				{
-					sData[j]=sht.getRow(i).getCell(j).getStringCellValue();
-				}
-				break;
-			}
-		}	
-		}
-		catch(Exception e)
-		{	
-			e.printStackTrace();
-		}
-		return sData;
-	}	
+	@BeforeMethod
+	public void launch()
+	{	
+	System.setProperty("webdriver.chrome.driver", "D:\\Sample Frame Work\\sample\\resources\\chromedriver.exe");
+	driver=new ChromeDriver();
+	driver.navigate().to("https://accounts.google.com/ServiceLogin?");
+
+}
 }

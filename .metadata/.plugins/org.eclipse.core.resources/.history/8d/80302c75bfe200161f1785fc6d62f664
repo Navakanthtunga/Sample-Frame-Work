@@ -1,0 +1,24 @@
+package com.baselib;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeMethod;
+
+/***********
+ *@method:  toReadExcelData()
+ *
+ *
+ */
+public class BaseLib {
+	public WebDriver driver=null;
+	@BeforeMethod
+	public void baseLib()
+	{	
+	
+
+	System.setProperty("webdriver.chrome.driver", "F:\\TESTING\\SOFTWARES\\WebDrivers\\chromedriver.exe");
+	driver=new ChromeDriver();
+	driver.navigate().to("https://accounts.google.com/ServiceLogin?");
+
+}
+}

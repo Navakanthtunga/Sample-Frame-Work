@@ -1,3 +1,4 @@
 activeuserprofiles=CBT-CAB3-03;Team
 eclipse.preferences.version=1
 org.eclipse.rse.systemtype.local.systemType.defaultUserId=Administrator
+useridperkey=CBT-CAB3-03.Local\=Administrator;
