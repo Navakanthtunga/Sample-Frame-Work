@@ -22,9 +22,9 @@ public static int passCount;
 	{
 		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 
-   
+        String FilePath = "C:\\Users\\test-output\\";
         new File(FilePath);  
-        FileUtils.copyFile(scrFile, new File( sDirPath +methodName +".jpg") );
+        FileUtils.copyFile(scrFile, new File( FilePath +methodName +".jpg") );
         System.out.println("***Placed screen shot in "+scrFile+" ***");
     }
 	}
