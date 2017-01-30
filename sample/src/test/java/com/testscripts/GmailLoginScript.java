@@ -1,10 +1,11 @@
 package com.testscripts;
 
-import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.baselib.BaseLib;
 import com.po.GmailLoginPo;
+@Listeners(com.baselib.Listners.class)
 
 public class GmailLoginScript extends BaseLib{
 	
@@ -19,13 +20,5 @@ public void login() throws Throwable
 	t1.clickSignInButt();
 	
 }
-@Test
-public void testFail() throws Throwable{
-	GmailLoginPo t2=new GmailLoginPo(driver);
-	t2.setEmail("cbtcrowd508");
-	t2.clickNextButt();
-	Thread.sleep(5000);
-	t2.setPwd("PEAR@122");
-	t2.clickSignInButt();
-}
+
 }

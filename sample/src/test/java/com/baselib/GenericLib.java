@@ -5,6 +5,8 @@ package com.baselib;
  *
  */
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Properties;
 
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -12,7 +14,24 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 public class GenericLib {
 public static String sTestDataFile="TestData.xlsx";
+	// To read data from config file
+public static String getconfigdata(String sfile,String skey) throws Throwable
+{
+	String value=null;
+	Properties prop=new Properties();
+	try{
+		FileInputStream fio=new FileInputStream(sfile);
+
+	prop.load(fio);
+	 value=prop.getProperty(skey);}
+	catch(FileNotFoundException e)
+	{
+		e.printStackTrace();
+	}
 	
+	return value;
+	
+}
 	public static String[] toReadExcelData(String sTestCaseID)
 	{
 		String sData[]=null;

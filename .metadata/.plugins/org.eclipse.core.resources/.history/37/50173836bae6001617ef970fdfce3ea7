@@ -1,0 +1,68 @@
+package com.baselib;
+/***********
+ *@method:  toReadExcelData()
+ *
+ *
+ */
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Properties;
+
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+
+public class GenericLib {
+public static String sTestDataFile="TestData.xlsx";
+	
+public static String getconfigdata(String sfile,String skey) throws Throwable
+{
+	
+
+	String value=null;
+	Properties prop=new Properties();
+	try{
+		FileInputStream fio=new FileInputStream(sfile);
+
+	prop.load(fio);
+	 value=prop.getProperty(skey);}
+	catch(FileNotFoundException e)
+	{
+		e.printStackTrace();
+	}
+	
+	return value;
+	
+}
+	public static String[] toReadExcelData(String sTestCaseID)
+	{
+		String sData[]=null;
+		try
+		{
+	
+		FileInputStream fis = new FileInputStream(sTestDataFile);
+		Workbook wb = (Workbook)WorkbookFactory.create(fis);
+		Sheet sht = wb.getSheet("TestData");
+		int iRowNum= sht.getLastRowNum();
+		for(int i=1;i<=iRowNum;i++)
+		{
+			if(sht.getRow(i).getCell(0).toString().equals(sTestCaseID))
+			{
+				int iCellNum=sht.getRow(i).getLastCellNum();
+				sData= new String[iCellNum];
+				for(int j=0;j<iCellNum;j++)		
+				{
+					sData[j]=sht.getRow(i).getCell(j).getStringCellValue();
+				}
+				break;
+			}
+		}	
+		}
+		catch(Exception e)
+		{	
+			e.printStackTrace();
+		}
+		return sData;
+	}	
+	
+}

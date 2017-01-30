@@ -6,7 +6,7 @@
       <class name="com.testscripts.GmailLoginScript">
         <methods>
           <include name="launch"/>
-          <include name="testFail"/>
+          <include name="login"/>
         </methods>
       </class> <!-- com.testscripts.GmailLoginScript -->
     </classes>
