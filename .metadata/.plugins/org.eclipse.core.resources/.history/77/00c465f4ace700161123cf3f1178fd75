@@ -1,0 +1,19 @@
+package com.scripts;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Test1 {
+	 static String path=System.getProperty("user.dir");
+
+public static void main(String[] args) {
+	System.setProperty("webdriver.chrome.driver", path+"\\resources\\chromedriver.exe");
+	WebDriver driver=new ChromeDriver();
+	driver.get("https://www.fatcow.com/");
+	Thread.sleep(10000);
+	WebElement ele1=driver.findElement(By.xpath("//a[text()='Spread the Word']"));
+	
+}
+}

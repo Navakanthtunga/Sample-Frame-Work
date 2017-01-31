@@ -1,0 +1,52 @@
+package com.scripts;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class VerifyWebElements {
+	public static void main(String[] args) throws Throwable {
+		
+ String path=System.getProperty("user.dir");
+
+
+	
+	System.setProperty("webdriverr.chrome.driverr", path+"\\resources\\chromedriverr.exe");
+	WebDriver driver=new ChromeDriver();
+	driver.get("https://www.flipkart.com/");
+	driver.manage().window().maximize();
+	driver.manage().timeouts().implicitlyWait(60,TimeUnit.SECONDS);
+	Thread.sleep(10000);
+	WebElement indWer=driver.findElement(By.xpath("//span[text()='Electronics']"));
+	WebElement wb=driver.findElement(By.xpath("//span[text()='Lenovo']"));
+	//WebElement ku=driver.findElement(By.xpath("//a[text()='Kurta/Kurtis']"));
+	
+	Actions action=new Actions(driver);
+	
+	//action.moveToElement(indWer).moveToElement(driver.findElement(By.xpath("(//div[@ class='col-md-4 col-eth1']//li)[1]//a"))).click().build().perform();
+	
+	
+//	Thread.sleep(10000);
+
+	Thread.sleep(5000);
+	action.moveToElement(indWer).moveToElement(wb).click().perform();
+	//action.moveToElement(wb).click().perform();
+	
+	//action.doubleClick(wb).perform();
+	Thread.sleep(8000);
+	
+	
+	
+	//driver.findElement(By.xpath(".//*[@id='trow1_right']/div/div[2]/a")).click();
+
+	//driver.findElement(By.xpath("//div[@class='col-md-12 signup_content']//div//div//div//p[@class='p_fforgot']//a[text()='Forgot Password?']")).click();
+	
+	//driver.findElement(By.id("user_email")).sendKeys("raghu");
+	//driver.findElement(By.xpath(".//*[@id='fb_auth']/img")).click();
+	driver.close();
+}
+}

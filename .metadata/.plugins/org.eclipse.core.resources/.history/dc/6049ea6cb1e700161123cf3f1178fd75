@@ -1,0 +1,54 @@
+package com.scripts;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Test;
+
+public class VerifyWebElements {
+	public static void main(String[] args) throws Throwable {
+		
+ String path=System.getProperty("user.dir");
+
+
+	
+	System.setProperty("webdriver.chrome.driver", path+"\\resources\\chromedriver.exe");
+	WebDriver drive=new ChromeDriver();
+	drive.get("https://www.voonik.com/");
+	drive.manage().window().maximize();
+	drive.manage().timeouts().implicitlyWait(60,TimeUnit.SECONDS);
+	Thread.sleep(10000);
+	WebElement indWer=drive.findElement(By.id("menu_item_0"));
+	WebElement wb=drive.findElement(By.xpath("id('menu_content_0')/x:div/x:div/x:div[1]/x:ul/x:li[1]/x:a"));
+	//WebElement ku=drive.findElement(By.xpath("//a[text()='Kurta/Kurtis']"));
+	
+	Actions action=new Actions(drive);
+	
+	//action.moveToElement(indWer).moveToElement(drive.findElement(By.xpath("(//div[@ class='col-md-4 col-eth1']//li)[1]//a"))).click().build().perform();
+	
+	
+//	Thread.sleep(10000);
+
+	Thread.sleep(5000);
+	action.moveToElement(indWer).moveToElement(wb).click().perform();
+	//action.moveToElement(wb).click().perform();
+	
+	//action.doubleClick(wb).perform();
+	Thread.sleep(8000);
+	
+	
+	
+	//drive.findElement(By.xpath(".//*[@id='trow1_right']/div/div[2]/a")).click();
+
+	//drive.findElement(By.xpath("//div[@class='col-md-12 signup_content']//div//div//div//p[@class='p_fforgot']//a[text()='Forgot Password?']")).click();
+	
+	//drive.findElement(By.id("user_email")).sendKeys("raghu");
+	//drive.findElement(By.xpath(".//*[@id='fb_auth']/img")).click();
+	drive.close();
+}
+}

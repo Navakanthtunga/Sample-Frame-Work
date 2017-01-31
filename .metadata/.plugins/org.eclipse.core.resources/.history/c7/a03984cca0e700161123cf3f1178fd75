@@ -1,0 +1,32 @@
+package com.scripts;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class VerifyWebElements {
+	static String path=System.getProperty("user.dir");
+public static void main(String[] args) throws InterruptedException {
+	
+	System.setProperty("webdriver.chrome.driver", path+"\\resources\\chromedriver.exe");
+	WebDriver drive=new ChromeDriver();
+	drive.get("https://www.voonik.com/");
+	Thread.sleep(5000);
+	WebElement indWer=drive.findElement(By.id("menu_item_0"));
+	
+	WebElement ku=drive.findElement(By.xpath("//a[text()='Kurta/Kurtis']"));
+	System.out.println(drive.getTitle());
+	Actions action=new Actions(drive);
+	//action.moveToElement(indWer).build().perform();
+	
+	action.moveToElement(indWer).moveToElement(ku).click().build().perform();
+	Thread.sleep(10000);
+
+	System.out.println(drive.getTitle());
+
+	/*d.findElement(By.id("menu_item_0")).click();
+	d.findElement(By.xpath("//a[text()='Kurta/Kurtis']")).click();*/
+}
+}

@@ -1,0 +1,7 @@
+package com.scripts;
+
+public class VerifyWebElements {
+public static void main(String[] args) {
+	
+}
+}
