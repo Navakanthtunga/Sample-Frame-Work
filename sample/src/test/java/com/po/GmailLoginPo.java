@@ -13,36 +13,31 @@ public class GmailLoginPo {
         PageFactory.initElements(driver, this);
 	}
 	// To identify email field
-	@FindBy(xpath="//input[@id='Email']")
-	WebElement email;
+	@FindBy(xpath="//input[@id='Eemail']")
+	private WebElement email;
+	public WebElement getEleEmail(){
+		return email;
+	}
 	
 	// To identify next button
 	@FindBy(xpath="//input[@id='next']")
 	WebElement nextButt;
+	public WebElement getNextButt(){
+		return nextButt;
+	}
 	
 	// To identify password field
 	@FindBy(xpath="//input[@id='Passwd']")
 	WebElement pwd;
 	
+	public WebElement getPwd(){
+		return pwd;
+	}
 	//To identify Signin Button
 	@FindBy(xpath="//input[@id='signIn']")
 	WebElement signInButt;
-	
-	public void setEmail(String emailid)
-	{
-		email.sendKeys(emailid);
-	}
-	public void clickNextButt()
-	{
-		nextButt.click();
-	}
-	public void setPwd(String pswd)
-	{
-		pwd.sendKeys(pswd);
-	}
-	public void clickSignInButt()
-	{
-		signInButt.click();
+	public WebElement getSignInButt(){
+		return signInButt;
 	}
 
 }

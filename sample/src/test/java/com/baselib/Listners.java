@@ -2,10 +2,13 @@ package com.baselib;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -23,15 +26,27 @@ public static int passCount;
 		passCount=passCount++;
 		System.out.println("No of Test passed : "+ passCount);
 	}
+
+
+	
 public void onTestFailure(ITestResult result) 
 	{
-		File scrFile = ((TakesScreenshot)BaseLib.driver).getScreenshotAs(OutputType.FILE);
-		try {
-			FileUtils.copyFile(scrFile, new File(BaseLib.sDirPath+"\\screenshots\\testScreenShot.jpg"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	// To get Failed method name
+	String failMethName=result.getMethod().getMethodName();
+
+	// To get Date 
+	Date date = new Date();
+	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy_hh-mm-ss");
+	String sdate = sdf.format(date);
+
+	
+	File imgFile = ((TakesScreenshot)BaseLib.driver).getScreenshotAs(OutputType.FILE);
+	try {
+		FileUtils.copyFile(imgFile, new File(BaseLib.sDirPath+"\\screenshots\\"+failMethName+"_"+sdate+"_test.png"));
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 	}
 
 	public void onTestSkipped(ITestResult result) {

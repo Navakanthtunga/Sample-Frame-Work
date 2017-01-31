@@ -1,0 +1,26 @@
+package com.testscripts;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Screen {
+public static void main(String[] args) {
+	String sDirPath = System.getProperty("user.dir");
+	
+/*	WebDriver driver ;
+	System.setProperty("webdriver.chrome.driver", sDirPath+"\\resources\\chromedriver.exe");
+	driver=new ChromeDriver();
+	driver.get("https://www.google.com");*/
+	
+	Date date = new Date();
+	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM_hh_mm_ss");
+	String sdate = sdf.format(date);
+	System.out.println("***********");
+	System.out.println(date);
+	System.out.println(sdf);
+	System.out.println(sdate);
+}
+}

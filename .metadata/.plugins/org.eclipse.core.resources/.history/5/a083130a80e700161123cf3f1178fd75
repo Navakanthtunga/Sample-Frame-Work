@@ -1,0 +1,65 @@
+package com.baselib;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
+
+public class Listners implements ITestListener {
+public static int passCount;
+
+
+	public void onTestStart(ITestResult result) {
+		
+	}
+
+	public void onTestSuccess(ITestResult result) {
+		// TODO Auto-generated method stub
+		passCount=passCount++;
+		System.out.println("No of Test passed : "+ passCount);
+	}
+public void onTestFailure(ITestResult result) 
+	{
+	System.out.println(result.getTestName());
+	Date date = new Date();
+	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy_hh-mm-ss");
+	String sdate = sdf.format(date);
+	System.out.println(sdate);
+	File imgFile = ((TakesScreenshot)BaseLib.driver).getScreenshotAs(OutputType.FILE);
+	try {
+		FileUtils.copyFile(imgFile, new File(BaseLib.sDirPath+"\\screenshots\\"+sdate+"_test.png"));
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	}
+
+	public void onTestSkipped(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onStart(ITestContext context) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onFinish(ITestContext context) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
