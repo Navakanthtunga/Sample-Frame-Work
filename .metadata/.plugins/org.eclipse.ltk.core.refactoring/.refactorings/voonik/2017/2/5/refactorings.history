@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.po.Kurtas_KurtisPo&apos; to &apos;SareesPo&apos;&#x0D;&#x0A;- Original project: &apos;voonik&apos;&#x0D;&#x0A;- Original element: &apos;com.po.Kurtas_KurtisPo&apos;&#x0D;&#x0A;- Renamed element: &apos;com.po.SareesPo&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Kurtas_KurtisPo&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/test\/java&lt;com.po{Kurtas_KurtisPo.java[Kurtas_KurtisPo" matchStrategy="1" name="SareesPo" qualified="false" references="true" similarDeclarations="false" stamp="1486020566315" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,26 @@
+package com.po;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class SareesPo {
+	public  WebDriver driver=null;
+public SareesPo(WebDriver driver){
+	this.driver=driver;
+	PageFactory.initElements(driver, this);
+}
+@FindBy(id="menu_item_0")
+private WebElement eleIndWr;
+public WebElement getEleIndWr(){
+	return eleIndWr;
+}
+@FindBy(xpath="//a[text()='Sarees']")
+private WebElement eleSarees;
+public WebElement getEleSarees(){
+	return eleSarees;
+}
+	
+
+}

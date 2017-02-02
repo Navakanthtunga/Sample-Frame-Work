@@ -1,0 +1,3 @@
+# Configurations
+BROWSER=Firefox
+TestUrl=https://www.voonik.com/

@@ -2,12 +2,12 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
-			<item value="com.fr"/>
+			<item value="com.cbt"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
-			<item value="sample"/>
+			<item value="voonik"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -70,6 +70,8 @@
 	</section>
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="D:\Navakanth_selenium\Projects"/>
+			<item value="D:\Sample Frame Work\sample"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

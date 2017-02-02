@@ -1,0 +1,44 @@
+package com.po;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class SareesPo {
+	public  WebDriver driver=null;
+public SareesPo(WebDriver driver){
+	this.driver=driver;
+	PageFactory.initElements(driver, this);
+}
+// To identify Indian wear
+@FindBy(id="menu_item_0")
+private WebElement eleIndWr;
+public WebElement getEleIndWr(){
+	return eleIndWr;
+}
+// To   identify sarees
+@FindBy(xpath="//a[text()='Sarees']")
+private WebElement eleSarees;
+public WebElement getEleSarees(){
+	return eleSarees;
+}
+// To identify the product
+@FindBy(xpath="//div[@ id='5088810']/../preceding-sibling::div/div/following-sibling::a")
+private WebElement eleClickPro;
+public WebElement getEleClickPro(){
+	return eleIndWr;
+}
+// To identify Product details
+@FindBy(id="5385816")
+private WebElement eleProDetails;
+public WebElement getEleProDetails(){
+	return eleProDetails;
+}
+// To Click on free size
+@FindBy(xpath="//div[@ id='5385816']//label[@ id='sizes']")
+private WebElement eleSize;
+public WebElement getEleSize(){
+	return eleSize;
+}
+}

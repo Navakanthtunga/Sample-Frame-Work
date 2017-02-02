@@ -1,0 +1,23 @@
+package com.scripts;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Test1 {
+	 static String path=System.getProperty("user.dir");
+
+public static void main(String[] args) throws InterruptedException {
+	System.setProperty("webdriver.chrome.driver", path+"\\resources\\chromedriver.exe");
+	WebDriver driver=new ChromeDriver();
+	driver.get("https://www.fatcow.com/");
+	Thread.sleep(5000);
+	WebElement ele1=driver.findElement(By.xpath("//a[text()='Spread the Word']"));
+	Actions act=new Actions(driver);
+	act.moveToElement(ele1).moveToElement(driver.findElement(By.xpath("//a[text()='Referral']"))).click().build().perform();
+	//WebElement ele2=driver.findElement(By.xpath("//a[text()='Referral']"));
+	
+}
+}

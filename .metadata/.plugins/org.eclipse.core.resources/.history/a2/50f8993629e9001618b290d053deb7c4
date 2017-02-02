@@ -1,0 +1,17 @@
+package com.scripts;
+
+import org.testng.annotations.Test;
+
+import com.base.BaseLib;
+import com.po.SareesPo;
+
+public class SareesScript extends BaseLib{
+	SareesPo sp=new SareesPo(driver);
+	@Test
+	
+	public void chooseSaree(){
+		BaseLib.readUrl();
+		// To click on Indian Wear
+		sp.getEleIndWr().click();
+	}
+}

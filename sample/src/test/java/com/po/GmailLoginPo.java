@@ -13,7 +13,7 @@ public class GmailLoginPo {
         PageFactory.initElements(driver, this);
 	}
 	// To identify email field
-	@FindBy(xpath="//input[@id='Eemail']")
+	@FindBy(xpath="//input[@id='Email']")
 	private WebElement email;
 	public WebElement getEleEmail(){
 		return email;

@@ -1,0 +1,30 @@
+package com.base;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.annotations.BeforeMethod;
+
+public class BaseLib {
+	public WebDriver driver;
+	
+	@BeforeMethod
+	public void browSetup(){
+		try{
+		if(GenericLib.getCongigValue(GenericLib.sConfigFile, "BROWSER").equalsIgnoreCase("Firefox")){
+			System.setProperty("webdriver.chrome.driver",GenericLib.sDirPath+"\\resources\\geckodriver.exe");
+			
+			driver = new ChromeDriver();
+		}else if(GenericLib.getCongigValue(GenericLib.sConfigFile, "BROWSER").equalsIgnoreCase("Firefox"))
+		{
+		System.setProperty("webdriver.gecko.driver",GenericLib.sDirPath+"\\resources\\geckodriver.exe");
+		System.out.println("Firefox Browser is set");
+			driver = new FirefoxDriver();
+		}
+		else{
+			System.setProperty("webdriver.ie.driver", GenericLib.sDirPath+"\\resources\\IEDriverServer.exe");
+			System.out.println("InternetExplorer Browser is set");
+			driver = new InternetExplorerDriver();
+		}
+}

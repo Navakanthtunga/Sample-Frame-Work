@@ -1,0 +1,10 @@
+package com.po;
+
+import org.openqa.selenium.WebDriver;
+
+public class Kurtas_KurtisPo {
+	public  WebDriver driver=null;
+public Kurtas_KurtisPo(WebDriver driver){
+	this.driver=driver;
+}
+}

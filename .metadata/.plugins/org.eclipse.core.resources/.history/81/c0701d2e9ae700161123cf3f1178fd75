@@ -1,9 +1,0 @@
-package com.scripts;
-
-public class VerifyWebElements {
-	static String path=System.getProperty("user.dir");
-public static void main(String[] args) {
-	
-	System.setProperty("webdriver.chrome.driver", path+"\\resources\\chromedriver.exe");
-}
-}
