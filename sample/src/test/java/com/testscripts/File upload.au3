@@ -1,3 +1,4 @@
+WinWaitActive("Open","",5)
 ControlFocus("Open","","Edit1")
 Sleep(2000)
 ControlSetText("Open","","Edit1","D:\Navakanth\Autoit\FileUpload.html")
